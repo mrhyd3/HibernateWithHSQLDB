@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="dialect">
+            org.hibernate.dialect.HSQLDialect
+        </property>
+        <property name="connection.url">
+            jdbc:hsqldb:mem:db
+        </property>
+        <property name="connection.driver_class">
+            org.hsqldb.jdbcDriver
+        </property>
+        <property name="hibernate.connection.username">sa</property>
+        <property name="hibernate.connection.password"></property>
+        <property name="hibernate.connection.autocommit">true</property>
+        <!-- DB schema will be updated if needed -->
+        <property name="hbm2ddl.auto">create-drop</property>
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+
+        <property name="cache.provider_class">org.hibernate.cache.HashtableCacheProvider</property>
+
+        <!-- Echo all executed SQL to stdout useful for debugging if set to true-->
+        <property name="show_sql">true</property>
+
+        <mapping class="TemplateEntity"/>
+
+
+    </session-factory>
+</hibernate-configuration>
